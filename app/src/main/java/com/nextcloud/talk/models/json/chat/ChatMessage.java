@@ -128,6 +128,26 @@ public class ChatMessage implements IMessage, MessageContentType, MessageContent
         return null;
     }
 
+    public String getFullScreenImageUrl() {
+        if (messageParameters != null && messageParameters.size() > 0) {
+            for (String key : messageParameters.keySet()) {
+                Map<String, String> individualHashMap = messageParameters.get(key);
+                if (individualHashMap.get("type").equals("file")) {
+                    selectedIndividualHashMap = individualHashMap;
+                    return (ApiUtils.getUrlForFilePreviewWithFileId(getActiveUser().getBaseUrl(),
+                            individualHashMap.get("id"), 2048)); //NextcloudTalkApplication.Companion.getSharedApplication().getResources().getDimensionPixelSize(R.dimen.maximum_file_preview_size)));
+                }
+            }
+        }
+
+        if (!messageTypesToIgnore.contains(getMessageType()) && isLinkPreviewAllowed) {
+            return getMessage().trim();
+        }
+
+        return null;
+
+    }
+
     public MessageType getMessageType() {
         if (!TextUtils.isEmpty(getSystemMessage())) {
             return MessageType.SYSTEM_MESSAGE;

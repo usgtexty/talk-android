@@ -37,6 +37,7 @@ import autodagger.AutoInjector;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.nextcloud.talk.R;
+import com.nextcloud.talk.activities.FullScreenImageActivity;
 import com.nextcloud.talk.application.NextcloudTalkApplication;
 import com.nextcloud.talk.components.filebrowser.models.BrowserFile;
 import com.nextcloud.talk.components.filebrowser.models.DavResponse;
@@ -116,20 +117,25 @@ public class MagicPreviewMessageViewHolder extends MessageHolders.IncomingImageM
                 String accountString =
                         message.activeUser.getUsername() + "@" + message.activeUser.getBaseUrl().replace("https://", "").replace("http://", "");
 
-                if (AccountUtils.INSTANCE.canWeOpenFilesApp(context, accountString)) {
-                    Intent filesAppIntent = new Intent(Intent.ACTION_VIEW, null);
-                    final ComponentName componentName = new ComponentName(context.getString(R.string.nc_import_accounts_from), "com.owncloud.android.ui.activity.FileDisplayActivity");
-                    filesAppIntent.setComponent(componentName);
-                    filesAppIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    filesAppIntent.setPackage(context.getString(R.string.nc_import_accounts_from));
-                    filesAppIntent.putExtra(BundleKeys.INSTANCE.getKEY_ACCOUNT(), accountString);
-                    filesAppIntent.putExtra(BundleKeys.INSTANCE.getKEY_FILE_ID(), message.getSelectedIndividualHashMap().get("id"));
-                    context.startActivity(filesAppIntent);
-                } else {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(message.getSelectedIndividualHashMap().get("link")));
-                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(browserIntent);
-                }
+                Intent fullScreenImageIntent = new Intent(context, FullScreenImageActivity.class);
+                fullScreenImageIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                fullScreenImageIntent.putExtra(BundleKeys.INSTANCE.getKEY_FILE_ID(), message.getSelectedIndividualHashMap().get("id"));
+                fullScreenImageIntent.putExtra("KEY_BIG_IMAGE_URL", message.getFullScreenImageUrl());
+                context.startActivity(fullScreenImageIntent);
+//                if (AccountUtils.INSTANCE.canWeOpenFilesApp(context, accountString)) {
+//                    Intent filesAppIntent = new Intent(Intent.ACTION_VIEW, null);
+//                    final ComponentName componentName = new ComponentName(context.getString(R.string.nc_import_accounts_from), "com.owncloud.android.ui.activity.FileDisplayActivity");
+//                    filesAppIntent.setComponent(componentName);
+//                    filesAppIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    filesAppIntent.setPackage(context.getString(R.string.nc_import_accounts_from));
+//                    filesAppIntent.putExtra(BundleKeys.INSTANCE.getKEY_ACCOUNT(), accountString);
+//                    filesAppIntent.putExtra(BundleKeys.INSTANCE.getKEY_FILE_ID(), message.getSelectedIndividualHashMap().get("id"));
+//                    context.startActivity(filesAppIntent);
+//                } else {
+//                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(message.getSelectedIndividualHashMap().get("link")));
+//                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    context.startActivity(browserIntent);
+//                }
             });
         } else if (message.getMessageType() == ChatMessage.MessageType.SINGLE_LINK_GIPHY_MESSAGE) {
             messageText.setText("GIPHY");
