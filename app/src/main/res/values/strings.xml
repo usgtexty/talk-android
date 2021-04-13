@@ -32,7 +32,12 @@
     <string name="nc_settings">Settings</string>
 
     <!-- Server selection -->
-    <string name="nc_server_url">Server address</string>
+    <string name="nc_server_connect">Test server connection</string>
+    <string name="nc_server_helper_text">The link to your %1$s web interface when you open it in the browser.</string>
+    <string name="nc_server_testing_connection">Testing connection</string>
+    <string name="nc_server_unsupported">Server does not have supported Talk app installed</string>
+
+    <string name="nc_server_url">Server address https://…</string>
     <string name="nc_server_not_installed">Please finish your %1$s installation</string>
     <string name="nc_server_db_upgrade_needed">Please upgrade your %1$s database</string>
     <string name="nc_server_maintenance">Please bring your %1$s out of maintenance</string>
@@ -152,6 +157,8 @@
     <string name="nc_license_summary">GNU General Public License, Version 3</string>
 
     <string name="nc_select_an_account">Select an account</string>
+
+    <string name="nc_profile_personal_info_title">Personal Info</string>
 
     <!-- Conversation menu -->
     <string name="nc_start_conversation">Start a conversation</string>
@@ -280,13 +287,15 @@
     <string name="nc_description_send_message_button">Send message</string>
 
     <!-- Empty states -->
-    <string name="nc_conversations_empty">Join a conversation or start a new one\n Say hi to your friends and colleagues!</string>
+    <string name="nc_conversations_empty">Join a conversation or start a new one</string>
+    <string name="nc_conversations_empty_details">Say hi to your friends and colleagues!</string>
     <string name="nc_hello">Hello</string>
 
     <!-- Other -->
     <string name="nc_limit_hit">%s characters limit has been hit</string>
     <string name="nc_groups">Groups</string>
     <string name="nc_participants">Participants</string>
+    <string name="nc_participants_add">Add participants</string>
 
     <string name="nc_owner">Owner</string>
     <string name="nc_moderator">Moderator</string>
@@ -389,4 +398,5 @@
     <string name="tooManyUnreadMessages" translatable="false">999+</string>
     <string name="nc_action_open_main_menu">Open main menu</string>
     <string name="failed_to_save">Failed to save %1$s</string>
+    <string name="selected_list_item">selected</string>
 </resources>

@@ -24,7 +24,6 @@
 
     <dimen name="item_height">72dp</dimen>
     <dimen name="small_item_height">48dp</dimen>
-    <dimen name="rv_item_view_height">48dp</dimen>
 
     <!-- Custom transition dimensions -->
     <dimen name="margin_between_elements">8dp</dimen>
@@ -54,4 +53,5 @@
     <dimen name="standard_padding">16dp</dimen>
     <dimen name="standard_half_padding">8dp</dimen>
     <dimen name="standard_half_margin">8dp</dimen>
+    <dimen name="default_login_width">400dp</dimen>
 </resources>

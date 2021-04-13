@@ -12,6 +12,8 @@ Types of changes can be: Added/Changed/Deprecated/Removed/Fixed/Security
 ### Changed
 - improve conversation list design and dark/light theming (@AndyScherzinger)
 - introduce new dark/light toolbar/searchbar design (@AndyScherzinger)
+- improve login screen design (@AndyScherzinger)
+- improve content/toolbar alignments (@AndyScherzinger)
 
 ### Fixed
 - @ in username is allowed for phonebook sync
