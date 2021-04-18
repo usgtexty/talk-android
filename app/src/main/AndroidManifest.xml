@@ -110,6 +110,7 @@
 
         <activity
             android:name=".activities.FullScreenImageActivity"
+            android:theme="@style/FullScreeImageTheme"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
