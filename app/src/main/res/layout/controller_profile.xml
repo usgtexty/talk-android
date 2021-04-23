@@ -96,7 +96,8 @@
                 android:background="@drawable/round_corner"
                 android:contentDescription="@string/choose_avatar_from_cloud"
                 android:src="@drawable/ic_mimetype_folder"
-                app:tint="@color/colorPrimary" />
+                app:tint="@color/colorPrimary"
+                android:visibility="gone" />
 
             <ImageButton
                 android:id="@+id/avatar_delete"
