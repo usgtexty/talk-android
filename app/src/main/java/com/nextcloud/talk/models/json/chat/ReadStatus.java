@@ -21,5 +21,9 @@
 package com.nextcloud.talk.models.json.chat;
 
 public enum ReadStatus {
-    NONE, SENT, READ
+    NONE,
+    SENT,
+    READ,
+    SENDING,
+    FAILED
 }
