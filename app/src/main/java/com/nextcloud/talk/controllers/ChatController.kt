@@ -140,7 +140,6 @@ import com.nextcloud.talk.utils.ConductorRemapping
 import com.nextcloud.talk.utils.ConductorRemapping.remapChatController
 import com.nextcloud.talk.utils.DateUtils
 import com.nextcloud.talk.utils.DisplayUtils
-import com.nextcloud.talk.utils.KeyboardUtils
 import com.nextcloud.talk.utils.MagicCharPolicy
 import com.nextcloud.talk.utils.NotificationUtils
 import com.nextcloud.talk.utils.UriUtils
@@ -1397,10 +1396,6 @@ class ChatController(args: Bundle) :
 
         binding.messageInputView.findViewById<ImageButton>(R.id.cancelReplyButton)?.setOnClickListener {
             cancelReply()
-        }
-
-        if (activity != null) {
-            KeyboardUtils(activity, getView(), false)
         }
 
         cancelNotificationsForCurrentConversation()
