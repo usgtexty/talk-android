@@ -54,28 +54,17 @@ android {
 
         // mayor.minor.hotfix.increment (for increment: 1-50=Alpha / 51-89=RC / 90-99=stable)
         // xx   .xxx  .xx    .xx
-        versionCode 110020052
-        versionName "11.2.0 RC2"
+        versionCode 110020053
+        versionName "11.1.3"
 
         flavorDimensions "default"
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
 
         productFlavors {
-            // used for f-droid
-            generic {
-                applicationId 'com.nextcloud.talk2'
-                dimension "default"
-            }
             gplay {
                 applicationId 'com.nextcloud.talk2'
                 dimension "default"
-            }
-            qa {
-                applicationId "com.nextcloud.talk2.qa"
-                dimension "default"
-                versionCode 1
-                versionName "1"
             }
         }
 
