@@ -77,8 +77,7 @@
     <string name="nc_settings_proxy_password_key" translatable="false">proxy_password</string>
     <string name="nc_settings_use_credentials_title">Proxy requires credentials</string>
     <string name="nc_settings_use_credentials_key" translatable="false">proxy_credentials</string>
-    <string name="nc_settings_switch_account">Switch between accounts</string>
-    <string name="nc_settings_reauthorize">Reauthorize Account</string>
+    <string name="nc_settings_reauthorize">Reauthorize account</string>
     <string name="nc_client_cert_setup">Set up client certificate</string>
     <string name="nc_client_cert_change">Change client certificate</string>
     <string name="nc_settings_remove">Remove</string>
@@ -420,7 +419,7 @@
     <string name="tooManyUnreadMessages" translatable="false">999+</string>
     <string name="nc_action_open_main_menu">Open main menu</string>
     <string name="failed_to_save">Failed to save %1$s</string>
-    <string name="selected_list_item">selected</string>
+    <string name="selected_list_item">Selected</string>
     <string name="filename_progress">%1$s (%2$d)</string>
     <string name="nc_dialog_invalid_password">Invalid password</string>
     <string name="nc_dialog_reauth_or_delete">Do you want to reauthorize or delete this account?</string>
