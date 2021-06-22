@@ -62,20 +62,9 @@ android {
         renderscriptSupportModeEnabled true
 
         productFlavors {
-            // used for f-droid
-            generic {
-                applicationId 'com.nextcloud.talk2'
-                dimension "default"
-            }
             gplay {
                 applicationId 'com.nextcloud.talk2'
                 dimension "default"
-            }
-            qa {
-                applicationId "com.nextcloud.talk2.qa"
-                dimension "default"
-                versionCode 1
-                versionName "1"
             }
         }
 
