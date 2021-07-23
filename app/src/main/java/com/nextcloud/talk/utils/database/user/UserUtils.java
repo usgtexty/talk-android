@@ -267,8 +267,10 @@ public class UserUtils {
             }
         }
 
-        return dataStore.upsert(user)
-                .toObservable()
-                .subscribeOn(Schedulers.io());
+        Observable<UserEntity> test = dataStore.upsert(user)
+            .toObservable()
+            .subscribeOn(Schedulers.io());
+
+        return test;
     }
 }
