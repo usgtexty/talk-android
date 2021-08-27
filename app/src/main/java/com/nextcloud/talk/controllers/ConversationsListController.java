@@ -109,6 +109,7 @@ import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
@@ -155,16 +156,20 @@ public class ConversationsListController extends BaseController implements Searc
     AppPreferences appPreferences;
 
     @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    @VisibleForTesting
+    public RecyclerView recyclerView;
 
     @BindView(R.id.swipeRefreshLayoutView)
-    SwipeRefreshLayout swipeRefreshLayout;
+    @VisibleForTesting
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     @BindView(R.id.loading_content)
-    LinearLayout loadingContent;
+    @VisibleForTesting
+    public LinearLayout loadingContent;
 
     @BindView(R.id.emptyLayout)
-    RelativeLayout emptyLayoutView;
+    @VisibleForTesting
+    public RelativeLayout emptyLayoutView;
 
     @BindView(R.id.fast_scroller)
     FastScroller fastScroller;
@@ -174,8 +179,12 @@ public class ConversationsListController extends BaseController implements Searc
 
     private UserEntity currentUser;
     private Disposable roomsQueryDisposable;
-    private FlexibleAdapter<AbstractFlexibleItem> adapter;
-    private List<AbstractFlexibleItem> callItems = new ArrayList<>();
+
+    @VisibleForTesting
+    public FlexibleAdapter<AbstractFlexibleItem> adapter;
+
+    @VisibleForTesting
+    public List<AbstractFlexibleItem> callItems = new ArrayList<>();
 
     private BottomSheet bottomSheet;
     private MenuItem searchItem;

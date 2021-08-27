@@ -85,7 +85,7 @@ class MainActivity : BaseActivity(), ActionBarProvider {
     @Inject
     lateinit var ncApi: NcApi
 
-    private var router: Router? = null
+    public var router: Router? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -177,6 +177,7 @@ class MainActivity : BaseActivity(), ActionBarProvider {
                 RouterTransaction.with(ConversationsListController())
                     .pushChangeHandler(HorizontalChangeHandler())
                     .popChangeHandler(HorizontalChangeHandler())
+                    .tag("ConversationListController")
             )
         }
     }
