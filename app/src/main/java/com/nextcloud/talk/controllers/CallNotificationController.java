@@ -86,6 +86,7 @@ import org.parceler.Parcels;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -95,6 +96,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import autodagger.AutoInjector;
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -213,7 +215,9 @@ public class CallNotificationController extends BaseController {
         ncApi.getPeersForCall(credentials, ApiUtils.getUrlForCall(apiVersion, userBeingCalled.getBaseUrl(),
                                                                   currentConversation.getToken()))
                 .subscribeOn(Schedulers.io())
-                .takeWhile(observable -> !leavingScreen)
+                .repeatWhen(completed -> completed.zipWith(Observable.range(1, 12), (n, i) -> i)
+                    .flatMap(retryCount -> Observable.timer(5, TimeUnit.SECONDS))
+                    .takeWhile(observable -> !leavingScreen))
                 .subscribe(new Observer<ParticipantsOverall>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -251,8 +255,8 @@ public class CallNotificationController extends BaseController {
 
                     @Override
                     public void onComplete() {
-                        if (!leavingScreen) {
-                            handler.postDelayed(() -> checkIfAnyParticipantsRemainInRoom(), 5000);
+                        if (getActivity() != null) {
+                            getActivity().runOnUiThread(() -> hangup());
                         }
                     }
                 });
