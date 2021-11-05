@@ -36,7 +36,7 @@ name: analysis
 
 steps:
 - name: analysis
-  image: nextcloudci/android:android-44
+  image: ghcr.io/nextcloud/continuous-integration-android8:2
   environment:
     GIT_USERNAME:
       from_secret: GIT_USERNAME
