@@ -41,10 +41,10 @@ else
         6=$stableBranch"-"$(date +%F)
     fi
     echo "New lint results at https://www.kaminsky.me/nc-dev/$repository-lint/$6.html"
-    curl 2>/dev/null -u $4:$5 -X PUT https://nextcloud.kaminsky.me/remote.php/webdav/$repository-lint/$6.html --upload-file app/build/reports/lint/lint.html
+    curl -u $4:$5 -X PUT https://nextcloud.kaminsky.me/remote.php/webdav/$repository-lint/$6.html --upload-file app/build/reports/lint/lint.html
 
     echo "New findbugs results at https://www.kaminsky.me/nc-dev/$repository-findbugs/$6.html"
-    curl 2>/dev/null -u $4:$5 -X PUT https://nextcloud.kaminsky.me/remote.php/webdav/$repository-findbugs/$6.html --upload-file app/build/reports/spotbugs/spotbugs.html
+    curl -u $4:$5 -X PUT https://nextcloud.kaminsky.me/remote.php/webdav/$repository-findbugs/$6.html --upload-file app/build/reports/spotbugs/spotbugs.html
 
     # delete all old comments
     oldComments=$(curl 2>/dev/null -u $1:$2 -X GET https://api.github.com/repos/nextcloud/talk-android/issues/$7/comments | jq '.[] | (.id |tostring) + "|" + (.user.login | test("nextcloud-android-bot") | tostring) ' | grep true | tr -d "\"" | cut -f1 -d"|")
